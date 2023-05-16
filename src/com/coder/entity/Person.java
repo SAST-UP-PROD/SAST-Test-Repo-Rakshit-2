@@ -88,8 +88,8 @@ public class Person implements Serializable {
         return LASTNAME;
     }
 
-    public void setLASTNAME(String LASTNAME) {
-        this.LASTNAME = LASTNAME;
+    public void setLASTNAME(String lname) {
+        this.LASTNAME = lname;
     }
 
     public String getNATIONALITY() {
