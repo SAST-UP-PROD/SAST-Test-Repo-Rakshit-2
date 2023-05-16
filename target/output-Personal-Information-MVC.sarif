@@ -1,0 +1,2602 @@
+{
+  "$schema" : "https://docs.oasis-open.org/sarif/sarif/v2.1.0/cos02/schemas/sarif-schema-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "io.mend.analysis:sast-analysis"
+      },
+      "properties" : {
+        "programmingLanguage" : "Java",
+        "sourceRootUri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/",
+        "creationTimeUtc" : "2023-03-10T09:23:09.839Z"
+      }
+    },
+    "results" : [ {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+          },
+          "region" : {
+            "startLine" : 108,
+            "startColumn" : 9,
+            "endLine" : 108,
+            "endColumn" : 78,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.log"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "checkAuth(UserName,Password)",
+          "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:checkAuth(UserName,Password)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 33,
+                  "startColumn" : 20,
+                  "endLine" : 33,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getParameter",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "username",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 42,
+                  "startColumn" : 19,
+                  "endLine" : 42,
+                  "endColumn" : 52,
+                  "snippet" : {
+                    "text" : "isStaff = coi.checkAuth(username, password);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "coi.checkAuth",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 93,
+                  "startColumn" : 20,
+                  "endLine" : 93,
+                  "endColumn" : 29,
+                  "snippet" : {
+                    "text" : "public boolean checkAuth(String UserName, String Password) {"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "checkAuth(UserName,Password)",
+                "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:checkAuth(UserName,Password)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "UserName",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 5,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 108,
+                  "startColumn" : 34,
+                  "endLine" : 108,
+                  "endColumn" : 77,
+                  "snippet" : {
+                    "text" : "LOGGER.log(Level.WARNING,\"BAD CREDENTIALS : \" + UserName +\": ******\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "checkAuth(UserName,Password)",
+                "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:checkAuth(UserName,Password)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"BAD CREDENTIALS : \" + UserName +\": ******\"",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 6,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 108,
+                  "startColumn" : 9,
+                  "endLine" : 108,
+                  "endColumn" : 78,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.log"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "checkAuth(UserName,Password)",
+                "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:checkAuth(UserName,Password)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:97' in 'checkAuth'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.log",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 7,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 1,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:TrustBoundaryViolation",
+      "level" : "error",
+      "message" : {
+        "text" : "HttpSession method of http object could be vulnerable to Trust Boundary Violation attacks."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+          },
+          "region" : {
+            "startLine" : 46,
+            "startColumn" : 13,
+            "endLine" : 46,
+            "endColumn" : 51,
+            "snippet" : {
+              "text" : "javax.servlet.http.HttpSession.setAttribute"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 33,
+                  "startColumn" : 20,
+                  "endLine" : 33,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getParameter",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "username",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 46,
+                  "startColumn" : 13,
+                  "endLine" : 46,
+                  "endColumn" : 51,
+                  "snippet" : {
+                    "text" : "javax.servlet.http.HttpSession.setAttribute"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING]' for variable 'username' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpSession.setAttribute",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 501,
+        "findingNo" : 2,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+          },
+          "region" : {
+            "startLine" : 50,
+            "startColumn" : 13,
+            "endLine" : 50,
+            "endColumn" : 86,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 33,
+                  "startColumn" : 20,
+                  "endLine" : 33,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getParameter",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 37,
+                  "startColumn" : 27,
+                  "endLine" : 37,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String username = request.getParameter(\"username\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "username",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 46,
+                  "startColumn" : 13,
+                  "endLine" : 46,
+                  "endColumn" : 52,
+                  "snippet" : {
+                    "text" : "session.setAttribute(\"user\", username);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpSession.setAttribute",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 50,
+                  "startColumn" : 25,
+                  "endLine" : 50,
+                  "endColumn" : 85,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Staff is logged in.\" + \" Details : \" +username+\":\"+password);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Staff is logged in.\" + \" Details : \" +username+\":\"+password",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 5,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 50,
+                  "startColumn" : 13,
+                  "endLine" : 50,
+                  "endColumn" : 86,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:9' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 6,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        }, {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 33,
+                  "startColumn" : 20,
+                  "endLine" : 33,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 38,
+                  "startColumn" : 27,
+                  "endLine" : 38,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String password = request.getParameter(\"password\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getParameter",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 38,
+                  "startColumn" : 27,
+                  "endLine" : 38,
+                  "endColumn" : 59,
+                  "snippet" : {
+                    "text" : "String password = request.getParameter(\"password\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "password",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 50,
+                  "startColumn" : 25,
+                  "endLine" : 50,
+                  "endColumn" : 85,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Staff is logged in.\" + \" Details : \" +username+\":\"+password);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Staff is logged in.\" + \" Details : \" +username+\":\"+password",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 50,
+                  "startColumn" : 13,
+                  "endLine" : 50,
+                  "endColumn" : 86,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/AuthServlet.java:AuthServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:9' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 5,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 3,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+          },
+          "region" : {
+            "startLine" : 66,
+            "startColumn" : 13,
+            "endLine" : 66,
+            "endColumn" : 48,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 42,
+                  "startColumn" : 20,
+                  "endLine" : 42,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 56,
+                  "startColumn" : 25,
+                  "endLine" : 56,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "Part filePart = request.getPart(\"photo\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getPart",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 56,
+                  "startColumn" : 25,
+                  "endLine" : 56,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "Part filePart = request.getPart(\"photo\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "filePart",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 65,
+                  "startColumn" : 34,
+                  "endLine" : 65,
+                  "endColumn" : 52,
+                  "snippet" : {
+                    "text" : "message = \" File \" + filePart.getName() + \" Size :\" + filePart.getSize() + \" is uploaded.\";"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.Part.getName",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 65,
+                  "startColumn" : 34,
+                  "endLine" : 65,
+                  "endColumn" : 52,
+                  "snippet" : {
+                    "text" : "message = \" File \" + filePart.getName() + \" Size :\" + filePart.getSize() + \" is uploaded.\";"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "filePart.getName()",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 5,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 65,
+                  "startColumn" : 23,
+                  "endLine" : 65,
+                  "endColumn" : 103,
+                  "snippet" : {
+                    "text" : "message = \" File \" + filePart.getName() + \" Size :\" + filePart.getSize() + \" is uploaded.\";"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "message",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 6,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 66,
+                  "startColumn" : 25,
+                  "endLine" : 66,
+                  "endColumn" : 47,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Details : \" + message);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Details : \" + message",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 7,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 66,
+                  "startColumn" : 13,
+                  "endLine" : 66,
+                  "endColumn" : 48,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:43' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 8,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 4,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+          },
+          "region" : {
+            "startLine" : 45,
+            "startColumn" : 9,
+            "endLine" : 45,
+            "endColumn" : 74,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "save(person)",
+          "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:save(person)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 45,
+                  "startColumn" : 9,
+                  "endLine" : 45,
+                  "endColumn" : 74,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "save(person)",
+                "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:save(person)",
+                "kind" : "function"
+              } ]
+            }
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 5,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+          },
+          "region" : {
+            "startLine" : 78,
+            "startColumn" : 9,
+            "endLine" : 78,
+            "endColumn" : 74,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 78,
+                  "startColumn" : 21,
+                  "endLine" : 78,
+                  "endColumn" : 73,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Person saved to database.\" + \" Details : \" + person);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Person saved to database.\" + \" Details : \" + person",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/PersonalInfo.java"
+                },
+                "region" : {
+                  "startLine" : 78,
+                  "startColumn" : 9,
+                  "endLine" : 78,
+                  "endColumn" : 74,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/PersonalInfo.java:PersonalInfo:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:44' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 6,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+          },
+          "region" : {
+            "startLine" : 68,
+            "startColumn" : 13,
+            "endLine" : 68,
+            "endColumn" : 54,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 43,
+                  "startColumn" : 20,
+                  "endLine" : 43,
+                  "endColumn" : 26,
+                  "snippet" : {
+                    "text" : "protected void doPost(HttpServletRequest request, HttpServletResponse response)"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "request",
+                "locationType" : "ARGUMENT"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 61,
+                  "startColumn" : 25,
+                  "endLine" : 61,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "Part filePart = request.getPart(\"photo\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.HttpServletRequest.getPart",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 61,
+                  "startColumn" : 25,
+                  "endLine" : 61,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "Part filePart = request.getPart(\"photo\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "filePart",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 3,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 31,
+                  "endLine" : 67,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "sb.append(\"File \" + filePart.getName() + \" size :\" + filePart.getSize() + \" is uploaded.\\n\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "javax.servlet.http.Part.getName",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 4,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 31,
+                  "endLine" : 67,
+                  "endColumn" : 49,
+                  "snippet" : {
+                    "text" : "sb.append(\"File \" + filePart.getName() + \" size :\" + filePart.getSize() + \" is uploaded.\\n\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "filePart.getName()",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 5,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 21,
+                  "endLine" : 67,
+                  "endColumn" : 102,
+                  "snippet" : {
+                    "text" : "sb.append(\"File \" + filePart.getName() + \" size :\" + filePart.getSize() + \" is uploaded.\\n\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"File \" + filePart.getName() + \" size :\" + filePart.getSize() + \" is uploaded.\\n\"",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 6,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 11,
+                  "endLine" : 67,
+                  "endColumn" : 104,
+                  "snippet" : {
+                    "text" : "sb.append(\"File \" + filePart.getName() + \" size :\" + filePart.getSize() + \" is uploaded.\\n\");"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "java.lang.StringBuilder.append",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 7,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 40,
+                  "endLine" : 68,
+                  "endColumn" : 53,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Details : \" + sb.toString());"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "java.lang.StringBuilder.toString",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 8,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 40,
+                  "endLine" : 68,
+                  "endColumn" : 53,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Details : \" + sb.toString());"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "sb.toString()",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 9,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 25,
+                  "endLine" : 68,
+                  "endColumn" : 53,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Details : \" + sb.toString());"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Details : \" + sb.toString()",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 10,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 13,
+                  "endLine" : 68,
+                  "endColumn" : 54,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:59' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 11,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 7,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+          },
+          "region" : {
+            "startLine" : 70,
+            "startColumn" : 9,
+            "endLine" : 70,
+            "endColumn" : 77,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "update(person)",
+          "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:update(person)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 70,
+                  "startColumn" : 9,
+                  "endLine" : 70,
+                  "endColumn" : 77,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "update(person)",
+                "fullyQualifiedName" : "src/com/coder/dao/CurdOperationsImpl.java:CurdOperationsImpl:update(person)",
+                "kind" : "function"
+              } ]
+            }
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 8,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Protocol:LogInjection",
+      "level" : "error",
+      "message" : {
+        "text" : " user input reached a Log4j sink"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+          },
+          "region" : {
+            "startLine" : 85,
+            "startColumn" : 10,
+            "endLine" : 85,
+            "endColumn" : 77,
+            "snippet" : {
+              "text" : "java.util.logging.Logger.info"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "name" : "doPost(request,response)",
+          "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+          "kind" : "function"
+        } ]
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 85,
+                  "startColumn" : 22,
+                  "endLine" : 85,
+                  "endColumn" : 76,
+                  "snippet" : {
+                    "text" : "LOGGER.info(\"Person Updated Sucessfully.\" + \" Details : \" + person);"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "properties" : {
+                "instanceName" : "\"Person Updated Sucessfully.\" + \" Details : \" + person",
+                "locationType" : "VARIABLE"
+              }
+            },
+            "executionOrder" : 1,
+            "properties" : {
+              "neededInUi" : true
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/UpdateServlet.java"
+                },
+                "region" : {
+                  "startLine" : 85,
+                  "startColumn" : 10,
+                  "endLine" : 85,
+                  "endColumn" : 77,
+                  "snippet" : {
+                    "text" : "java.util.logging.Logger.info"
+                  }
+                }
+              },
+              "logicalLocations" : [ {
+                "name" : "doPost(request,response)",
+                "fullyQualifiedName" : "src/com/coder/controllerServlets/UpdateServlet.java:UpdateServlet:doPost(request,response)",
+                "kind" : "function"
+              } ],
+              "message" : {
+                "text" : "protocol analysis reached states '[FINDING: user input reached a Log4j sink, non-identical to start value]' for variable '_ws_tmp_var_:su:61' in 'doPost'"
+              },
+              "properties" : {
+                "instanceName" : "java.util.logging.Logger.info",
+                "locationType" : "FUNCTION"
+              }
+            },
+            "executionOrder" : 2,
+            "properties" : {
+              "neededInUi" : true
+            }
+          } ],
+          "properties" : {
+            "recommendedFixLocation" : null
+          }
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 117,
+        "findingNo" : 9,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+          },
+          "region" : {
+            "startLine" : 38,
+            "startColumn" : 16,
+            "endLine" : 38,
+            "endColumn" : 24,
+            "snippet" : {
+              "text" : "password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/AuthServlet.java"
+                },
+                "region" : {
+                  "startLine" : 38,
+                  "startColumn" : 16,
+                  "endLine" : 38,
+                  "endColumn" : 24,
+                  "snippet" : {
+                    "text" : "password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 10,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HardCodedCredentials:Variables",
+      "level" : "error",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret and assigned to some const or empty string = \"...\""
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 67,
+            "startColumn" : 9,
+            "endLine" : 67,
+            "endColumn" : 22,
+            "snippet" : {
+              "text" : "password = \"\""
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 9,
+                  "endLine" : 67,
+                  "endColumn" : 22,
+                  "snippet" : {
+                    "text" : "password = \"\""
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 798,
+        "findingNo" : 11,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HardCodedCredentials:Variables",
+      "level" : "error",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret and assigned to some const or empty string = \"...\""
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 68,
+            "startColumn" : 9,
+            "endLine" : 68,
+            "endColumn" : 22,
+            "snippet" : {
+              "text" : "password2= \"\""
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 9,
+                  "endLine" : 68,
+                  "endColumn" : 22,
+                  "snippet" : {
+                    "text" : "password2= \"\""
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 798,
+        "findingNo" : 12,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 40,
+            "startColumn" : 20,
+            "endLine" : 40,
+            "endColumn" : 28,
+            "snippet" : {
+              "text" : "password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 40,
+                  "startColumn" : 20,
+                  "endLine" : 40,
+                  "endColumn" : 28,
+                  "snippet" : {
+                    "text" : "password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 13,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 41,
+            "startColumn" : 20,
+            "endLine" : 41,
+            "endColumn" : 29,
+            "snippet" : {
+              "text" : "password2"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 41,
+                  "startColumn" : 20,
+                  "endLine" : 41,
+                  "endColumn" : 29,
+                  "snippet" : {
+                    "text" : "password2"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 14,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 63,
+            "startColumn" : 84,
+            "endLine" : 63,
+            "endColumn" : 92,
+            "snippet" : {
+              "text" : "password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 84,
+                  "endLine" : 63,
+                  "endColumn" : 92,
+                  "snippet" : {
+                    "text" : "password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 15,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+          },
+          "region" : {
+            "startLine" : 63,
+            "startColumn" : 101,
+            "endLine" : 63,
+            "endColumn" : 110,
+            "snippet" : {
+              "text" : "password2"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/controllerServlets/NewUser.java"
+                },
+                "region" : {
+                  "startLine" : 63,
+                  "startColumn" : 101,
+                  "endLine" : 63,
+                  "endColumn" : 110,
+                  "snippet" : {
+                    "text" : "password2"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 16,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperations.java"
+          },
+          "region" : {
+            "startLine" : 29,
+            "startColumn" : 48,
+            "endLine" : 29,
+            "endColumn" : 56,
+            "snippet" : {
+              "text" : "password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperations.java"
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 48,
+                  "endLine" : 29,
+                  "endColumn" : 56,
+                  "snippet" : {
+                    "text" : "password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 17,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperations.java"
+          },
+          "region" : {
+            "startLine" : 31,
+            "startColumn" : 50,
+            "endLine" : 31,
+            "endColumn" : 58,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperations.java"
+                },
+                "region" : {
+                  "startLine" : 31,
+                  "startColumn" : 50,
+                  "endLine" : 31,
+                  "endColumn" : 58,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 18,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+          },
+          "region" : {
+            "startLine" : 93,
+            "startColumn" : 54,
+            "endLine" : 93,
+            "endColumn" : 62,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 93,
+                  "startColumn" : 54,
+                  "endLine" : 93,
+                  "endColumn" : 62,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 19,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+          },
+          "region" : {
+            "startLine" : 116,
+            "startColumn" : 48,
+            "endLine" : 116,
+            "endColumn" : 56,
+            "snippet" : {
+              "text" : "password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/dao/CurdOperationsImpl.java"
+                },
+                "region" : {
+                  "startLine" : 116,
+                  "startColumn" : 48,
+                  "endLine" : 116,
+                  "endColumn" : 56,
+                  "snippet" : {
+                    "text" : "password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 20,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+          },
+          "region" : {
+            "startLine" : 42,
+            "startColumn" : 20,
+            "endLine" : 42,
+            "endColumn" : 28,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+                },
+                "region" : {
+                  "startLine" : 42,
+                  "startColumn" : 20,
+                  "endLine" : 42,
+                  "endColumn" : 28,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 21,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+          },
+          "region" : {
+            "startLine" : 67,
+            "startColumn" : 36,
+            "endLine" : 67,
+            "endColumn" : 44,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+                },
+                "region" : {
+                  "startLine" : 67,
+                  "startColumn" : 36,
+                  "endLine" : 67,
+                  "endColumn" : 44,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 22,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+          },
+          "region" : {
+            "startLine" : 79,
+            "startColumn" : 39,
+            "endLine" : 79,
+            "endColumn" : 47,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+                },
+                "region" : {
+                  "startLine" : 79,
+                  "startColumn" : 39,
+                  "endLine" : 79,
+                  "endColumn" : 47,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 23,
+        "confidence" : "LOW"
+      }
+    }, {
+      "ruleId" : "Regex:HeapInspection",
+      "kind" : "informational",
+      "level" : "none",
+      "message" : {
+        "text" : "looking for variables with name contain password|pass|pwd|secret"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+          },
+          "region" : {
+            "startLine" : 85,
+            "startColumn" : 42,
+            "endLine" : 85,
+            "endColumn" : 50,
+            "snippet" : {
+              "text" : "Password"
+            }
+          }
+        }
+      } ],
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:///Users/rakshitkr/git/MendSAST/JavaTestProjects/Personal-Information-MVC/src/com/coder/entity/Staff.java"
+                },
+                "region" : {
+                  "startLine" : 85,
+                  "startColumn" : 42,
+                  "endLine" : 85,
+                  "endColumn" : 50,
+                  "snippet" : {
+                    "text" : "Password"
+                  }
+                }
+              },
+              "message" : {
+                "text" : "match for regular expression"
+              }
+            },
+            "executionOrder" : 1
+          } ]
+        } ]
+      } ],
+      "properties" : {
+        "cwe" : 244,
+        "findingNo" : 24,
+        "confidence" : "LOW"
+      }
+    } ]
+  } ]
+}
